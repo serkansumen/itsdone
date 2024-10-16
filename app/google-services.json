@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "643861002463",
+    "project_id": "done-17f6d",
+    "storage_bucket": "done-17f6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643861002463:android:ebbfc63cecac43b3bfd16a",
+        "android_client_info": {
+          "package_name": "com.globalservice.itsdone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7F3O-1i1NEeNIku_B_M4Siycvwf7X1Fw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
