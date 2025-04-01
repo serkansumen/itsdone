@@ -1,0 +1,24 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:8.0.2" // Sizin projenizdeki versiyonla DEĞİŞTİRİN
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24" // Sizin projenizdeki versiyonla DEĞİŞTİRİN
+        classpath 'com.google.gms:google-services:4.4.2' // Google Services eklentisi - GÜNCEL VERSİYON
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+// AŞAĞIDAKİ KISIMLAR SİZİN PROJENİZDE FARKLI OLABİLİR, EĞER VARSA DOKUNMAYIN
+// Eğer bu tür ek task'ler veya konfigürasyonlar yoksa, bu kısmı tamamen silebilirsiniz.
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

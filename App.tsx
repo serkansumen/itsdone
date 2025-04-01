@@ -1,20 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// App.tsx
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useSelector, Provider } from 'react-redux'; // Provider'ı import edin
+import { RootState } from './store'; // RootState'i import edin
+import store from './store'; // store'u default olarak import edin
+import LoginScreen from './screens/LoginScreen';
+import HomeScreen from './screens/HomeScreen';
 
-export default function App() {
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+type RootStackParamList = {
+  Login: undefined;
+  Home: undefined;
+};
+
+function App() {
+  const user = useSelector((state: RootState) => state.auth.user);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        {user ? (
+          <Stack.Screen name="Home" component={HomeScreen} />
+        ) : (
+          <Stack.Screen name="Login" component={LoginScreen} />
+        )}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// Uygulamanızı Provider ile sarmalayın
+export default function Root() {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+}
+
